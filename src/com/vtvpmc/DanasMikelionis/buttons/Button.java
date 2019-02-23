@@ -10,7 +10,7 @@ import com.vtvpmc.DanasMikelionis.TypeOfButton;
 
 public class Button {
 	private JButton button;
-	String whatButton;
+	private String whatButton;
 	
 	public Button(String whatButton, int x, int y, int width,
 			int height, Frame frame, TypeOfButton typeOfButton) {
@@ -19,6 +19,14 @@ public class Button {
 		this.button.setBounds(x, y, width, height);
 		this.button.addActionListener((ActionEvent e) ->
 			Action.doAction(frame, whatButton, typeOfButton));
+	}
+	
+	public String getWhatButton() {
+		return this.whatButton;
+	}
+	
+	public void setWhatButton(String text) {
+		this.whatButton = text;
 	}
 	
 	public String whatButton() {
