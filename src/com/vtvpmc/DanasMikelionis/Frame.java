@@ -4,11 +4,11 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import com.vtvpmc.DanasMikelionis.buttons.AbstractButton;
+import com.vtvpmc.DanasMikelionis.buttons.Button;
 
 public class Frame {
 	private JFrame frameObject;
-	private JLabel label = new JLabel("0");
+	private JLabel labelCalculation = new JLabel("0");
 	
 	public Frame() {
 		this.frameObject = new JFrame();
@@ -24,22 +24,21 @@ public class Frame {
 		this.frameObject.setTitle(title);
 	}
 	
-	public void changeLabel(String text) {
-		if (this.label.getText().equals("0")) {
-			label.setText(text);
-		} else {
-			label.setText(label.getText() + text);
-		}
-		
+	public void setCalculationLabelText(String text) {
+		this.labelCalculation.setText(text);
 	}
 	
-	public void addButtons(AbstractButton[] buttons) {
+	public String getCalculationLabelText() {
+		return this.labelCalculation.getText();
+	}
+	
+	public void addButtons(Button[] buttons) {
 		
 		JPanel panel = new JPanel();
 		panel.setLayout(null);
 		
-		label.setBounds(40, 40, 320, 70);
-		panel.add(label);
+		this.labelCalculation.setBounds(40, 40, 320, 70);
+		panel.add(this.labelCalculation);
 		
 		for (int i = 0; i < buttons.length; i++) {
 			panel.add(buttons[i].getButton());

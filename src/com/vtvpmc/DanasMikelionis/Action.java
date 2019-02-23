@@ -1,11 +1,16 @@
 package com.vtvpmc.DanasMikelionis;
 
 public class Action {
-	public static void doAction(String whatButton) {
-		switch (whatButton) {
-		case "0":
-			System.out.println("0 was clicked");
-			break;
+	public static void doAction(Frame frame, String whatButton,
+			TypeOfButton typeOfButton) {
+		if (typeOfButton == TypeOfButton.NUMBER) {
+			if (frame.getCalculationLabelText().equals("0")) {
+				frame.setCalculationLabelText(whatButton);
+			} else {
+				frame.setCalculationLabelText((frame
+					.getCalculationLabelText() + whatButton));
+			}
 		}
+		
 	}
 }
