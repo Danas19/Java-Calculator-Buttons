@@ -9,22 +9,18 @@ public class Action {
 			if (indexOfSign != -1) {
 				double number1 = Double.valueOf(frame.getCalculationLabelText()
 						.substring(0, indexOfSign - 1));
-				double number2;
 				
 				if (indexOfSign != answer.length() - 2) {
-					number2 = Double.valueOf(answer
+					double number2 = Double.valueOf(answer
 							.substring(indexOfSign + 2, answer.length()));
 					answer = getArithmeticAnswer(number1, number2,
 							answer.charAt(indexOfSign));
-					
 				} else {
 					answer = getArithmeticAnswer(number1, number1,
 							answer.charAt(indexOfSign));
 				}
-				
 				frame.setCaluculationLabelText(answer);
 			}
-			
 	}
 	
 	private static String getArithmeticAnswer(double number1, double number2,
