@@ -14,33 +14,31 @@ public class Action {
 				if (indexOfSign != answer.length() - 2) {
 					number2 = Double.valueOf(answer
 							.substring(indexOfSign + 2, answer.length()));
-					if (answer.charAt(indexOfSign) == '+') {
-						answer = String.valueOf(number1 + number2);
-					} else if (answer.charAt(indexOfSign) == '-') {
-						answer = String.valueOf(number1 - number2);
-					} else if (answer.charAt(indexOfSign) == 'X') {
-						answer = String.valueOf(number1 * number2);
-					} else {
-						//if (answer.charAt(indexOfSign) == ':')
-						answer = String.valueOf(number1 / number2);
-					}
+					answer = getArithmeticAnswer(number1, number2,
+							answer.charAt(indexOfSign));
 					
 				} else {
-					if (answer.charAt(indexOfSign) == '+') {
-						answer = String.valueOf(number1 + number1);
-					} else if (answer.charAt(indexOfSign) == '-') {
-						answer = String.valueOf(number1 - number1);
-					} else if (answer.charAt(indexOfSign) == 'X') {
-						answer = String.valueOf(number1 * number1);
-					} else {
-						//if (answer.charAt(indexOfSign) == ':')
-						answer = String.valueOf(number1 / number1);
-					}
+					answer = getArithmeticAnswer(number1, number1,
+							answer.charAt(indexOfSign));
 				}
 				
 				frame.setCaluculationLabelText(answer);
 			}
 			
+	}
+	
+	private static String getArithmeticAnswer(double number1, double number2,
+			char sign) {
+		if (sign == '+') {
+			return String.valueOf(number1 + number2);
+		} else if (sign == '-') {
+			return String.valueOf(number1 - number2);
+		} else if (sign == 'X') {
+			return String.valueOf(number1 * number2);
+		} else {
+			//if (answer.charAt(indexOfSign) == ':')
+			return String.valueOf(number1 / number2);
+		}
 	}
 	
 	public static void doActionButton0(Frame frame) {
