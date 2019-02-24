@@ -4,7 +4,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import com.vtvpmc.DanasMikelionis.buttons.Button;
+import com.vtvpmc.DanasMikelionis.buttons.AbstractButton;
 
 public class Frame {
 	private JFrame frameObject;
@@ -24,15 +24,11 @@ public class Frame {
 		this.frameObject.setTitle(title);
 	}
 	
-	public void setCalculationLabelText(String text) {
-		this.labelCalculation.setText(text);
+	public JLabel getCalculationLabel() {
+		return this.labelCalculation;
 	}
 	
-	public String getCalculationLabelText() {
-		return this.labelCalculation.getText();
-	}
-	
-	public void addButtons(Button[] buttons) {
+	public void addButtons(AbstractButton[] buttons) {
 		
 		JPanel panel = new JPanel();
 		panel.setLayout(null);
