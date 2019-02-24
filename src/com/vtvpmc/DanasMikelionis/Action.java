@@ -1,28 +1,35 @@
 package com.vtvpmc.DanasMikelionis;
 
 public class Action {
+	private static String lastAction;
 
 	public static void doActionEquals(Frame frame) {
 			String answer = frame.getCalculationLabelText();
 			if (indexOf(frame.getCalculationLabelText()) != -1) {
 				int indexOfSign = indexOf(frame.getCalculationLabelText());
-				String number1 = frame.getCalculationLabelText()
-						.substring(0, indexOfSign - 1);
-				String number2;
+				double number1 = Double.valueOf(frame.getCalculationLabelText()
+						.substring(0, indexOfSign - 1));
+				double number2;
 				
-				switch (answer.charAt(indexOfSign)) {
-				case '+':
-					if (indexOfSign != answer.length() - 2) {
-						number2 = answer
-								.substring(indexOfSign + 2, answer.length());
-						answer = String.valueOf(Double.valueOf(number1)
-								+ Double.valueOf(number2));
+				
+				if (indexOfSign != answer.length() - 2) {
+					number2 = Double.valueOf(answer
+							.substring(indexOfSign + 2, answer.length()));
+					if (answer.charAt(indexOfSign) == '+') {
+						answer = String.valueOf(number1 + number2);
+					} else if (answer.charAt(indexOfSign) == '-') {
+						answer = String.valueOf(number1 - number2);
+					} else if (answer.charAt(indexOfSign) == 'X') {
+						answer = String.valueOf(number1 * number2);
 					} else {
-						answer = String.valueOf(Double.valueOf(number1) +
-								Double.valueOf(number1));
+						//if (answer.charAt(indexOfSign) == ':')
+						answer = String.valueOf(number1 / number2);
 					}
-					break;
+					
+				} else {
+					answer = String.valueOf(number1 + number1);
 				}
+				
 				
 				frame.setCaluculationLabelText(answer);
 			}
