@@ -14,7 +14,7 @@ public class Frame {
 		this.frameObject = new JFrame();
 		this.frameObject.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.frameObject.setVisible(true);
-		this.frameObject.setSize(400, 400);
+		this.frameObject.setSize(700, 500);
 		
 		
 	}

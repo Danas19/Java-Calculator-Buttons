@@ -1,5 +1,5 @@
 package com.vtvpmc.DanasMikelionis;
 
 public enum TypeOfButton {
-	NUMBER
+	NUMBER, ARITHMETIC, EQUALS
 }
