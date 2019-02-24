@@ -8,7 +8,11 @@ import com.vtvpmc.DanasMikelionis.buttons.AbstractButton;
 
 public class Frame {
 	private JFrame frameObject;
-	private JLabel labelCalculation = new JLabel("0");
+	private String labelCalculationHTMLStart = "<html><h1 style=\"background-color"
+			+ ":white;\">";
+	private String labelCalculationHTMLEnd = "</h1></html>";
+	private JLabel labelCalculation = new JLabel(labelCalculationHTMLStart +
+			"0" + labelCalculationHTMLEnd);
 	
 	public Frame() {
 		this.frameObject = new JFrame();
@@ -24,8 +28,19 @@ public class Frame {
 		this.frameObject.setTitle(title);
 	}
 	
-	public JLabel getCalculationLabel() {
-		return this.labelCalculation;
+//	public JLabel getCalculationLabel() {
+//		return this.labelCalculation;
+//	}
+	
+	public String getCalculationLabelText() {
+		return this.labelCalculation.getText()
+				.replace(labelCalculationHTMLStart, "")
+					.replace(labelCalculationHTMLEnd, "");
+	}
+	
+	public void setCaluculationLabelText(String text) {
+		this.labelCalculation.setText(labelCalculationHTMLStart + text
+				+ labelCalculationHTMLEnd);
 	}
 	
 	public void addButtons(AbstractButton[] buttons) {
@@ -33,7 +48,7 @@ public class Frame {
 		JPanel panel = new JPanel();
 		panel.setLayout(null);
 		
-		this.labelCalculation.setBounds(40, 40, 320, 70);
+		this.labelCalculation.setBounds(40, 40, 320, 90);
 		panel.add(this.labelCalculation);
 		
 		for (int i = 0; i < buttons.length; i++) {

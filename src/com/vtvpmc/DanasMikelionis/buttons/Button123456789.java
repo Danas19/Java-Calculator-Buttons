@@ -10,11 +10,11 @@ public class Button123456789 extends AbstractButton {
 
 	@Override
 	protected void doAction(Frame frame) {
-		if (frame.getCalculationLabel().getText().equals("0")) {
-			frame.getCalculationLabel().setText(super.getWhatButton());
+		if (frame.getCalculationLabelText().equals("0")) {
+			frame.setCaluculationLabelText(super.getWhatButton());
 		} else {
-			frame.getCalculationLabel().setText((frame
-				.getCalculationLabel().getText() + super.getWhatButton()));
+			frame.setCaluculationLabelText((frame
+				.getCalculationLabelText() + super.getWhatButton()));
 		}
 	}
 	

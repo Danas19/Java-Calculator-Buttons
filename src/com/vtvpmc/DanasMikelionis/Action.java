@@ -2,11 +2,11 @@ package com.vtvpmc.DanasMikelionis;
 
 public class Action {
 	public static void doActionEquals(Frame frame) {
-			String answer = frame.getCalculationLabel().getText();
-			if (frame.getCalculationLabel().getText().matches(".{0,}[+-X:].{0,}")) {
-				int indexOfSign = indexOf(frame.getCalculationLabel().getText());
-				String number1 = frame.getCalculationLabel()
-						.getText().substring(0, indexOfSign - 1);
+			String answer = frame.getCalculationLabelText();
+			if (frame.getCalculationLabelText().matches(".{0,}[+-X:].{0,}")) {
+				int indexOfSign = indexOf(frame.getCalculationLabelText());
+				String number1 = frame.getCalculationLabelText()
+						.substring(0, indexOfSign - 1);
 				String number2;
 				
 				switch (answer.charAt(indexOfSign)) {
@@ -25,15 +25,15 @@ public class Action {
 				}
 				
 			}
-			frame.getCalculationLabel().setText(answer);
+			frame.setCaluculationLabelText(answer);
 	}
 	
 	public static void doActionArithmetic(Frame frame, String whatButton) {
-		if (frame.getCalculationLabel().getText().matches(".{0,}[X:+-].{0,}")) {
+		if (frame.getCalculationLabelText().matches(".{0,}[X:+-].{0,}")) {
 			doActionEquals(frame);
 		}
-		frame.getCalculationLabel().setText(frame.getCalculationLabel()
-				.getText() + " " + whatButton + " ");
+		frame.setCaluculationLabelText(frame.getCalculationLabelText()
+				+ " " + whatButton + " ");
 	}
 	
 	private static int indexOf(String text) {

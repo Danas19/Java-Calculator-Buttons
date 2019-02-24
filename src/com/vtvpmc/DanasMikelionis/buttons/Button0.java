@@ -10,9 +10,9 @@ public class Button0 extends AbstractButton {
 
 	@Override
 	public void doAction(Frame frame) {
-		if (!frame.getCalculationLabel().getText().equals("0")) {
-			frame.getCalculationLabel().setText(frame
-					.getCalculationLabel().getText() + "0");
+		if (!frame.getCalculationLabelText().equals("0")) {
+			frame.setCaluculationLabelText(frame
+					.getCalculationLabelText() + "0");
 		}
 	}
 	
