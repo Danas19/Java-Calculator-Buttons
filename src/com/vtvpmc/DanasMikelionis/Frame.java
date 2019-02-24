@@ -4,7 +4,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import com.vtvpmc.DanasMikelionis.buttons.AbstractButton;
+import com.vtvpmc.DanasMikelionis.buttons.Button;
 
 public class Frame {
 	private JFrame frameObject;
@@ -43,7 +43,7 @@ public class Frame {
 				+ labelCalculationHTMLEnd);
 	}
 	
-	public void addButtons(AbstractButton[] buttons) {
+	public void addButtons(Button[] buttons) {
 		
 		JPanel panel = new JPanel();
 		panel.setLayout(null);
